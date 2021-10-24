@@ -1,0 +1,74 @@
+{
+  "name": "Places",
+  "fields": [
+    {
+      "fieldName": "placesName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "placesId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "placesDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placesCurrentStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "placeSpecialAttraction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placeVisitPrice",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "places",
+      "relationshipName": "location",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tourist",
+      "otherEntityRelationshipName": "places",
+      "javadoc": "Another side of the same relationship",
+      "relationshipName": "tourist"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "facilities",
+      "otherEntityRelationshipName": "places",
+      "relationshipName": "facilities"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "activities",
+      "otherEntityRelationshipName": "places",
+      "relationshipName": "activities"
+    }
+  ],
+  "entityTableName": "places",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["myApp"],
+  "microserviceName": "myApp",
+  "clientRootFolder": "myApp",
+  "databaseType": "sql",
+  "changelogDate": "20211024061444"
+}

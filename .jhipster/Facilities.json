@@ -1,0 +1,51 @@
+{
+  "name": "Facilities",
+  "fields": [
+    {
+      "fieldName": "facilitiesId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "facilitiesName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "facilitiesDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facilitiesCharges",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tourist",
+      "otherEntityRelationshipName": "facilities",
+      "javadoc": "A relationship",
+      "relationshipName": "tourist"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "places",
+      "otherEntityRelationshipName": "facilities",
+      "relationshipName": "places"
+    }
+  ],
+  "entityTableName": "facilities",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["myApp"],
+  "microserviceName": "myApp",
+  "clientRootFolder": "myApp",
+  "databaseType": "sql",
+  "changelogDate": "20211024061445"
+}

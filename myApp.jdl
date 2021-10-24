@@ -1,0 +1,131 @@
+application {
+  config {
+    applicationType microservice
+    authenticationType jwt
+    baseName myApp
+    blueprints []
+    buildTool maven
+    cacheProvider no
+    clientPackageManager npm
+    creationTimestamp 1635052519018
+    databaseType sql
+    devDatabaseType mysql
+    dtoSuffix DTO
+    enableGradleEnterprise false
+    enableHibernateCache false
+    enableSwaggerCodegen false
+    enableTranslation false
+    gradleEnterpriseHost ""
+    jhiPrefix jhi
+    jhipsterVersion "7.3.1"
+    jwtSecretKey "YjI0YTNiOGY4NTdkMGQ3M2RkYTdhMTQwMmEzNzYwZGZhYTNlYmNhNTYwZDViYzg1MjI1OWUzYzM0MTFjYzIxYTNmMDI1ZTBmNGNiZTU2MGRkZjc1OWIzMmUyMzhlNjhhMDJjN2ExYjhkMTZlN2Y4NDM5MzI5ODc1NTFjNWVkNzg="
+    languages [en]
+    messageBroker false
+    nativeLanguage en
+    otherModules []
+    packageName com.sonalika.myapp
+    prodDatabaseType mysql
+    reactive false
+    searchEngine false
+    serverPort 8081
+    serviceDiscoveryType eureka
+    skipClient true
+    skipUserManagement true
+    testFrameworks []
+    websocket false
+  }
+  entities Places, Facilities, Tourist, Location, Activities
+}
+
+
+entity Tourist  {
+  touristName String required,
+    touristId Long required,
+    touristFrom String,
+    touristImage String required,
+    touristPan String required,
+    touristAge String required
+}
+
+entity Places {
+  placesName String required,
+    placesId Long required,
+    placesDesc String,
+    placesCurrentStatus String required,
+    placeSpecialAttraction String,
+    placeVisitPrice Long required
+    
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+  locationId Long required,
+  address String required,
+  postalCode String,
+  city String required,
+    state String required,
+    country String  required
+}
+
+entity Activities {
+  activitiesName String required,
+    activitiesCondition String required,
+    activitesId Long required
+}
+
+entity Facilities{
+  facilitiesId Long required ,
+    facilitiesName String required,
+    facilitiesDesc String,
+    facilitiesCharges Float
+}
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH, HINDI
+}
+
+relationship OneToOne {
+  Places{Location} to Location
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+  Tourist{Activities} to Activities,
+  /**
+  * A relationship
+  */
+  Facilities{Tourist} to Tourist,
+  /**
+  * Another side of the same relationship
+  */
+  Places{Tourist} to Tourist,
+    
+    Places{Facilities} to Facilities,
+    Places{Activities} to Activities
+    
+}
+
+relationship ManyToOne {
+  Tourist{Location} to Location
+}
+
+// defining multiple oneToOne relationships
+
+// Set pagination options
+paginate Places, Activities, Facilities with infinite-scroll
+paginate Places, Activities, Facilities with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Places, Facilities, Tourist, Location, Activities
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

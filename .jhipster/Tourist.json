@@ -1,0 +1,73 @@
+{
+  "name": "Tourist",
+  "fields": [
+    {
+      "fieldName": "touristName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "touristId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "touristFrom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "touristImage",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "touristPan",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "touristAge",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "activities",
+      "otherEntityRelationshipName": "tourist",
+      "relationshipName": "activities"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "tourist",
+      "relationshipName": "location"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facilities",
+      "otherEntityRelationshipName": "tourist",
+      "relationshipName": "facilities"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "places",
+      "otherEntityRelationshipName": "tourist",
+      "relationshipName": "places"
+    }
+  ],
+  "entityTableName": "tourist",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["myApp"],
+  "microserviceName": "myApp",
+  "clientRootFolder": "myApp",
+  "databaseType": "sql",
+  "changelogDate": "20211024061446"
+}

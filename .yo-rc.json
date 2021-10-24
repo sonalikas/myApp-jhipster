@@ -5,8 +5,8 @@
     "baseName": "myApp",
     "packageName": "com.sonalika.myapp",
     "packageFolder": "com/sonalika/myapp",
-    "serverPort": 8081,
-    "serviceDiscoveryType": false,
+    "serverPort": "8081",
+    "serviceDiscoveryType": "eureka",
     "authenticationType": "jwt",
     "cacheProvider": "no",
     "enableHibernateCache": false,
@@ -41,6 +41,12 @@
     "creationTimestamp": 1635052519018,
     "jwtSecretKey": "YjI0YTNiOGY4NTdkMGQ3M2RkYTdhMTQwMmEzNzYwZGZhYTNlYmNhNTYwZDViYzg1MjI1OWUzYzM0MTFjYzIxYTNmMDI1ZTBmNGNiZTU2MGRkZjc1OWIzMmUyMzhlNjhhMDJjN2ExYjhkMTZlN2Y4NDM5MzI5ODc1NTFjNWVkNzg=",
     "reactive": false,
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "gradleEnterpriseHost": "",
+    "applicationIndex": 0,
+    "entities": ["Places", "Facilities", "Tourist", "Location", "Activities"],
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "lastLiquibaseTimestamp": 1635056088000
   }
 }

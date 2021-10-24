@@ -1,0 +1,47 @@
+{
+  "name": "Activities",
+  "fields": [
+    {
+      "fieldName": "activitiesName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "activitiesCondition",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "activitesId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tourist",
+      "otherEntityRelationshipName": "activities",
+      "relationshipName": "tourist"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "places",
+      "otherEntityRelationshipName": "activities",
+      "relationshipName": "places"
+    }
+  ],
+  "entityTableName": "activities",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["myApp"],
+  "microserviceName": "myApp",
+  "clientRootFolder": "myApp",
+  "databaseType": "sql",
+  "changelogDate": "20211024061448"
+}

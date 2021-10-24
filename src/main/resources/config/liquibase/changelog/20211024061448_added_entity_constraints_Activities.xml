@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <!--
+        Added the constraints for entity Activities.
+    -->
+    <changeSet id="20211024061448-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="tourist_id"
+                                 baseTableName="activities"
+                                 constraintName="fk_activities__tourist_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tourist"/>
+
+        <addForeignKeyConstraint baseColumnNames="places_id"
+                                 baseTableName="activities"
+                                 constraintName="fk_activities__places_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="places"/>
+    </changeSet>
+</databaseChangeLog>

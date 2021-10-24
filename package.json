@@ -25,10 +25,12 @@
     "docker:app:up": "docker-compose -f src/main/docker/app.yml up -d",
     "docker:db:down": "docker-compose -f src/main/docker/mysql.yml down -v --remove-orphans",
     "docker:db:up": "docker-compose -f src/main/docker/mysql.yml up -d",
-    "docker:others:await": "",
-    "docker:others:down": "",
+    "docker:jhipster-registry:down": "docker-compose -f src/main/docker/jhipster-registry.yml down -v --remove-orphans",
+    "docker:jhipster-registry:up": "docker-compose -f src/main/docker/jhipster-registry.yml up -d",
+    "docker:others:await": "echo \"Waiting for jhipster-registry to start\" && wait-on http-get://localhost:8761/management/health && echo \"jhipster-registry started\"",
+    "docker:others:down": "npm run docker:jhipster-registry:down",
     "predocker:others:up": "",
-    "docker:others:up": "",
+    "docker:others:up": "npm run docker:jhipster-registry:up",
     "java:docker": "./mvnw -ntp verify -DskipTests jib:dockerBuild",
     "java:docker:arm64": "npm run java:docker -- -Djib-maven-plugin.architecture=arm64",
     "java:docker:dev": "npm run java:docker -- -Pdev,webapp",
@@ -44,7 +46,7 @@
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,java}\""
   },
   "config": {
-    "backend_port": 8081,
+    "backend_port": "8081",
     "default_environment": "prod",
     "packaging": "jar"
   },
